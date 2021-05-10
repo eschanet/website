@@ -12,7 +12,7 @@ My personal website built using javascript with React, Express, React-Router, Gi
     npm install
     ```
 
-2. Next, create an`.env` file:
+2. Next, create an `.env` file:
 
     ```bash
     cp sample.env .env
