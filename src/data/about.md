@@ -11,7 +11,7 @@ I am a co-founder of [Weabe](https://weabe.lu), a luxembourgish lifestyle platfo
 - Data, and gaining insights from large, complex datasets. There is so much interesting stuff in these.
 - Travelling around Europe (and beyond) in my self-converted camper van.
 - Spending time with my dog and significant other (disclaimer: not in that order).
-- Hiking in the mountains. The higer, the better. My personal best so far: 4900m.
+- Hiking in the mountains. The higher, the better. My personal best so far: 4900m.
 - Nepal. I seriously love it! The people, the culture and the mountains. All of it is simply breathtaking.
 
 #### I dream of
