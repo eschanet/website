@@ -63,6 +63,10 @@ const skills = [
     category: ['Tools'],
   },
   {
+    title: 'Dask',
+    category: ['Data Science', 'Python'],
+  },
+  {
     title: 'Numpy',
     category: ['Data Science', 'Data Engineering', 'Python'],
   },

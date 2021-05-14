@@ -23,7 +23,7 @@ const data = [
   },
   {
     title: 'Solar Eclipse',
-    subtitle: 'Social Network for Luxembourg',
+    subtitle: 'Solar Eclipse in the United States',
     image: '/images/projects/final-edited-high.png',
     date: '2017-08-21',
     desc:

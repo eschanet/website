@@ -17,7 +17,7 @@ const Projects = () => (
           <h2 data-testid="heading"><Link to="/projects">Projects</Link></h2>
           <p>
             A random selection of projects I have worked on{' '}
-            and that I am not too ashamed of.
+            outside of my main research and work.
           </p>
         </div>
       </header>
