@@ -36,6 +36,7 @@ const data = [
     subtitle: 'Social Network for Luxembourg',
     image: '/images/projects/network-hero.png',
     date: '2014-08-20',
+    link: 'https://github.com/eschanet/SocialNetwork-iOS',
     desc:
       'Built and launched a social network taylored for Luxembourg. '
       + 'Available on iOS and Android, launched in 2014. Source code available online.',
@@ -45,6 +46,7 @@ const data = [
     subtitle: 'Instant Messenger',
     image: '/images/projects/luxchat-hero.png',
     date: '2014-08-20',
+    link: 'https://github.com/eschanet/InstantMessenger-iOS',
     desc:
       'Instant messagin app for iOS. Built using Objective-C for the frontend, JavaScript for the backend, '
       + 'and MongoDB and PostgreSQL databases. Source code available online.',
