@@ -24,7 +24,7 @@ const positions = [
     ],
   }, {
     company: 'Codelight',
-    position: 'Software Engineer, Consultant',
+    position: 'Software Engineer, Consultant (self-employed)',
     link: '',
     daterange: 'March 2014 - October 2018',
     points: [
@@ -43,6 +43,24 @@ const positions = [
       'Assisting students with assignments and general inquiries.',
       'Supervision of students during practical course.',
       'Organization and grading of final exams.',
+    ],
+  }, {
+    company: 'Dealis Fund Operations (now State Street)',
+    position: 'Analyst Intern',
+    link: 'https://www.statestreet.com/about/office-locations/luxembourg.html',
+    daterange: 'July 2015 - September 2015',
+    points: [
+      'Identified and implemented improvements to key processes for internal accounting and reporting processes.',
+      'Implemented analysis and reporting pipeline, crucial in allowing Fund Operations Division to meet deadline for financial audit by regulatory agency.',
+    ],
+  }, {
+    company: 'UBS Luxembourg',
+    position: 'Analyst Intern',
+    link: 'https://www.ubs.com/lu/en.html',
+    daterange: 'June 2013 - September 2013',
+    points: [
+      'Developed packages for analysis and reporting of financial statements using Excel VBA and internal databases.',
+      'Assisted in creation of ad-hoc, monthly and quarterly financial reports, including customization for various analytical and presentation needs.',
     ],
   },
 ];
