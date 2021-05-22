@@ -20,7 +20,7 @@ const SideBar = () => (
     <section className="blurb">
       <h2>About</h2>
       <p>Hi, I&apos;m Eric. I like science, data and tinkering with data in the name of science.
-        I am a research fellow and PhD candidate in particle physics at the <a href="https://www.uni-muenchen.de/index.html">Ludwig-Maximilians-University Munich</a>.
+        I am a research fellow and Ph.D. candidate in particle physics at the <a href="https://www.uni-muenchen.de/index.html">Ludwig-Maximilians-University Munich</a>.
         I work at the <a href="https://atlas.cern/">ATLAS experiment</a> at the Large Hadron Collider at <a href="https://home.cern/">CERN</a>, where I perform
         large-scale statistical data analysis to search for new physics phenomena.
         I am also a co-founder of <a href="https://www.weabe.lu/">Weabe</a> where I worked as a developer and consultant as well as
