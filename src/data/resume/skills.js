@@ -1,10 +1,11 @@
-// TODO: Add Athletic Skills, Office Skills,
-// Data Engineering, Data Science, ML Engineering, ... ?
-
 const skills = [
   {
     title: 'Javascript',
     category: ['Web Development', 'Languages', 'Javascript'],
+  },
+  {
+    title: 'D3.js',
+    category: ['Web Development', 'Javascript', 'Data Visualization'],
   },
   {
     title: 'Node.JS',
@@ -67,6 +68,14 @@ const skills = [
     category: ['Data Science', 'Python'],
   },
   {
+    title: 'Flask',
+    category: ['Data Science', 'Python', 'Data Visualization'],
+  },
+  {
+    title: 'Plotly',
+    category: ['Data Science', 'Python', 'Data Visualization'],
+  },
+  {
     title: 'Numpy',
     category: ['Data Science', 'Data Engineering', 'Python'],
   },
@@ -95,16 +104,16 @@ const skills = [
     category: ['Languages'],
   },
   {
-    title: 'Data Visualization',
-    category: ['Data Science', 'Javascript'],
-  },
-  {
     title: 'Pandas',
     category: ['Data Engineering', 'Data Science', 'Python'],
   },
   {
     title: 'Matplotlib',
-    category: ['Data Engineering', 'Data Science', 'Python'],
+    category: ['Data Science', 'Python', 'Data Visualization'],
+  },
+  {
+    title: 'Seaborn',
+    category: ['Data Science', 'Python', 'Data Visualization'],
   },
   {
     title: 'Scikit-Learn',
@@ -137,6 +146,10 @@ const skills = [
   {
     title: 'OpenShift',
     category: ['Web Development', 'Tools'],
+  },
+  {
+    title: 'Grafana',
+    category: ['Tools', 'Data Visualization'],
   },
 ].map((skill) => ({ ...skill, category: skill.category.sort() }));
 
