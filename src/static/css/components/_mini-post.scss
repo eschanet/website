@@ -7,13 +7,14 @@
 /* Mini Post */
 .cell-container {
   position: relative;
+  width: 100%;
 
   .description {
-    position: absolute;
+    position: relative;
     padding: 0;
     bottom: 0;
     border-top: solid 1px _palette(border);
-
+    
     p {
       font-size: 0.9rem;
       margin: 0;
@@ -46,7 +47,8 @@
   background: _palette(bg);
   border: solid 1px _palette(border);
   margin: 0 0 _size(element-margin);
-
+  width: 100%;
+  
   .image {
     overflow: hidden;
     width: 100%;
@@ -95,7 +97,7 @@
 .mini-posts {
   margin: 0 0 _size(element-margin);
   @include breakpoint(large) {
-     @include vendor( 'display', 'flex');
+    @include vendor( 'display', 'flex');
     @include vendor( 'flex-wrap', 'wrap');
     width: calc(100% + #{_size(element-margin)});
 

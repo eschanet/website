@@ -6,9 +6,9 @@ const data = [
     image: '/images/projects/galaxy.jpg',
     date: '2012-09-01',
     desc:
-      'I love taking photographies of our night sky just like the one shown here (the Andromeda galaxy). '
-      + 'Some of my photographies have been featured in articles and printed journals. '
-      + 'My deep sky and planetary photos are taken with a Canon DSLR and a 6 inch newtonian telescope on a guided mount.',
+      'I love taking photographs of our night sky just like the one shown here (the Andromeda galaxy). '
+      + 'Some of my photographs have been featured in articles and printed journals. '
+      + 'My deep sky and planetary pictures are taken with a Canon DSLR and a 6 inch newtonian telescope on a custom-built guided mount.',
   },
   {
     title: 'High-altitude balloon flight',

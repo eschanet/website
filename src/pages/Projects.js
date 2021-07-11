@@ -21,12 +21,14 @@ const Projects = () => (
           </p>
         </div>
       </header>
-      {data.map((project) => (
-        <Cell
-          data={project}
-          key={project.title}
-        />
-      ))}
+      <div className="posts">
+        {data.map((project) => (
+          <Cell
+            data={project}
+            key={project.title}
+          />
+        ))}
+      </div>
     </article>
   </Main>
 );
