@@ -1,7 +1,7 @@
 const degrees = [
   {
     school: 'Ludwig-Maximilians-University Munich',
-    degree: 'Ph.D. candidate in particle physics',
+    degree: 'Ph.D. Physics',
     link: 'https://www.etp.physik.uni-muenchen.de/',
     from_year: 2018,
     to_year: 2021,
