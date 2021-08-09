@@ -29,7 +29,11 @@
       "declaration": true,
       "assignment": true,
       "return": true
-    }]
+    }],
+    "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+    ]
   },
   "plugins": [
     "react"
