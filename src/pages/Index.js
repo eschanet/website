@@ -7,7 +7,7 @@ const Index = () => (
   <Main
     description={"Eric Schanet's personal website. Munich based research fellow in High Energy Physics."}
   >
-    <article className="post" id="index">
+    <article className="project" id="index">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="/">About this site</Link></h2>

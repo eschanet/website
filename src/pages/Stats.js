@@ -11,7 +11,7 @@ const Stats = () => (
     title="Stats"
     description="Some statistics about Eric Schanet"
   >
-    <article className="post" id="stats">
+    <article className="project" id="stats">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="/stats">Stats</Link></h2>

@@ -11,7 +11,7 @@ const Projects = () => (
     title="Projects"
     description="Learn about Eric Schanet's projects."
   >
-    <article className="post" id="projects">
+    <article className="project" id="projects">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="/projects">Projects</Link></h2>
@@ -21,7 +21,7 @@ const Projects = () => (
           </p>
         </div>
       </header>
-      <div className="posts">
+      <div className="projects">
         {data.map((project) => (
           <Cell
             data={project}

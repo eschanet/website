@@ -32,7 +32,7 @@ const Resume = () => (
     title="Resume"
     description="Eric Schanet's Resume."
   >
-    <article className="post" id="resume">
+    <article className="project" id="resume">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="resume">Resume</Link></h2>

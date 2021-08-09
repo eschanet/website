@@ -9,6 +9,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import About from '../pages/About';
+import Blog from '../pages/Blog';
 import Contact from '../pages/Contact';
 import Index from '../pages/Index';
 import NotFound from '../pages/NotFound';
@@ -31,6 +32,11 @@ const pages = [
     route: '/projects',
     heading: 'Projects',
     component: Projects,
+  },
+  {
+    route: '/blog',
+    heading: 'Blog',
+    component: Blog,
   },
   {
     route: '/stats',

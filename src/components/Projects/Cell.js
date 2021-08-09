@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 const Cell = ({ data }) => (
   <div className="cell-container">
-    <article className="mini-post">
+    <article className="mini-project">
       <header>
         <h3><a href={data.link}>{data.title}</a></h3>
         <time className="published">{dayjs(data.date).format('MMMM, YYYY')}</time>

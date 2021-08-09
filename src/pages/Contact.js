@@ -10,7 +10,7 @@ const Contact = () => (
     title="Contact"
     description="Contact Eric Schanet via email @ eric.schanet@gmail.com"
   >
-    <article className="post" id="contact">
+    <article className="project" id="contact">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="/contact">Contact</Link></h2>
