@@ -44,3 +44,6 @@ build/
 
 # Nohup
 nohup.out
+
+# package lock
+package-lock.json
