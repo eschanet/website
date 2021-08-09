@@ -6,6 +6,8 @@ import './static/css/main.scss';
 const { PUBLIC_URL } = process.env;
 
 const About = lazy(() => import('./pages/About'));
+const Blog = lazy(() => import('./pages/Blog'));
+const Post = lazy(() => import('./pages/Post'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Index = lazy(() => import('./pages/Index'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -20,6 +22,8 @@ const App = () => (
         <Route exact path="/" component={Index} />
         <Route path="/about" component={About} />
         <Route path="/projects" component={Projects} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/post/:slug" component={Post} />
         {/* <Route path="/stats" component={Stats} /> */}
         <Route path="/contact" component={Contact} />
         <Route path="/resume" component={Resume} />
