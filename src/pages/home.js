@@ -1,18 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-// import { Router } from "@reach/router"
-// import { StaticImage } from "gatsby-plugin-image"
+import React from 'react';
+import { Link } from 'gatsby';
 
 import Main from "../components/main"
-import Seo from "../components/seo"
 
-import '../../static/css/main.scss';
-
-const App = () => (
+const Index = () => (
   <Main
     description={"Eric Schanet's personal website. Munich based research fellow in High Energy Physics."}
   >
-    <Seo title="Home" />
     <article className="project" id="index">
       <header>
         <div className="title">
@@ -34,4 +28,4 @@ const App = () => (
   </Main>
 );
 
-export default App
+export default Index;
