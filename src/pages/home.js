@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import Main from "../components/main"
+import Main from "../components/main";
 
 const Index = () => (
   <Main

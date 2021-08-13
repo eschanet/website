@@ -3,13 +3,13 @@ import { Link } from "gatsby";
 
 import ContactIcons from '../Contact/ContactIcons';
 
-const { PUBLIC_URL } = process.env;
+import profile from '../../images/me_icon.jpg';
 
 const SideBar = () => (
   <section id="sidebar">
     <section id="intro">
       <Link to="/" className="logo">
-        <img src={`${PUBLIC_URL}/images/me_icon.jpg`} alt="" />
+        <img src={profile} alt="Eric Schanet profile picture" />
       </Link>
       <header>
         <h2>Eric Schanet</h2>

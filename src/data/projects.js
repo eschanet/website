@@ -3,7 +3,7 @@ const data = [
   {
     title: 'Astrophotography',
     subtitle: 'Photography using my telescope and guiding equipment',
-    image: '/images/projects/galaxy.jpg',
+    image: 'src/images/projects/galaxy.jpg',
     date: '2012-09-01',
     desc:
       'I love taking photographs of our night sky just like the one shown here (the Andromeda galaxy). '
@@ -13,7 +13,7 @@ const data = [
   {
     title: 'High-altitude balloon flight',
     subtitle: '',
-    image: '/images/projects/stratosphere.jpg',
+    image: 'src/images/projects/stratosphere.jpg',
     date: '2013-08-01',
     link: 'https://vimeo.com/70288540',
     desc:
@@ -24,7 +24,7 @@ const data = [
   {
     title: 'Solar Eclipse',
     subtitle: 'Solar Eclipse in the United States',
-    image: '/images/projects/final-edited-high.png',
+    image: 'src/images/projects/final-edited-high.png',
     date: '2017-08-21',
     desc:
       'In 2017, I travelled to the Yellowstone National Park to photograph the solar eclipse. '
@@ -34,7 +34,7 @@ const data = [
   {
     title: 'Social Network',
     subtitle: 'Social Network for Luxembourg',
-    image: '/images/projects/network-hero.png',
+    image: 'src/images/projects/network-hero.png',
     date: '2014-08-20',
     link: 'https://github.com/eschanet/SocialNetwork-iOS',
     desc:
@@ -44,7 +44,7 @@ const data = [
   {
     title: 'LuxChat',
     subtitle: 'Instant Messenger',
-    image: '/images/projects/luxchat-hero.png',
+    image: 'src/images/projects/luxchat-hero.png',
     date: '2014-08-20',
     link: 'https://github.com/eschanet/InstantMessenger-iOS',
     desc:
@@ -54,7 +54,7 @@ const data = [
   // {
   //   title: 'Image Editor',
   //   subtitle: 'Social Network for Luxembourg',
-  //   image: '/images/projects/netzwierk.jpg',
+  //   image: 'src/images/projects/netzwierk.jpg',
   //   date: '2014-08-20',
   //   desc:
   //     'Built specifically as a social network for Luxembourg. '
