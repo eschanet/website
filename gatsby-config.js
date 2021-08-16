@@ -6,6 +6,20 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Eric Schanet's personal website`,
+        short_name: `Eric Schanet`,
+        description: `This is Eric Schanet's personal website and blog.`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `src/images/favicon/android-chrome-512x512.png`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#fff`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -18,21 +32,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/data/markdown-pages`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/data/posts`,
+        name: `data`,
+        path: `${__dirname}/src/data/`,
       },
     },
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
-        path: `${__dirname}/src/data/markdown-pages`,
+        path: `${__dirname}/src/data/about`,
       },
     },
     {
@@ -62,7 +69,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx'],
+        extensions: ['.mdx', '.md'],
       },
     },
   ],

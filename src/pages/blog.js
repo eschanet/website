@@ -24,7 +24,7 @@ const BlogIndex = ({ data }) => {
             </p>
           </div>
         </header>
-        <div className="projects">
+        <div className="posts">
         {posts.map(({ node: post }) => (
             <li key={post.id}>
               <Link to={post.fields.slug}>
@@ -43,7 +43,10 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { fileAbsolutePath: {regex: "/posts/"}},
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from "gatsby";
-
+import { Link, graphql } from "gatsby";
 import Main from "../components/main"
 import Seo from "../components/seo"
 
-import Cell from '../components/Projects/Cell';
-import data from '../data/projects';
+import ProjectCell from '../components/Projects/ProjectCell';
 
-const Projects = () => (
+const ProjectsIndex = ({ data }) => {
+  const { edges: projects } = data.allMdx
+  return (
   <Main
     title="Projects"
     description="Learn about Eric Schanet's projects."
@@ -24,15 +24,47 @@ const Projects = () => (
         </div>
       </header>
       <div className="projects">
-        {data.map((project) => (
-          <Cell
+        {projects.map(({ node: project}) => (
+          <ProjectCell
             data={project}
-            key={project.title}
+            key={project.frontmatter.title}
           />
         ))}
       </div>
     </article>
   </Main>
-);
+)}
 
-export default Projects;
+export default ProjectsIndex;
+
+
+export const pageQuery = graphql`
+query {
+  allMdx(
+  filter: {
+    fileAbsolutePath: { regex: "/projects/" }
+    frontmatter: { visible: { eq: true } }
+  }
+  sort: { fields: [frontmatter___position], order: ASC }
+  ) {
+    edges {
+      node {
+        body
+        frontmatter {
+          title
+          date
+          link
+          hero {
+            childImageSharp {
+              fluid(maxWidth: 750) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
