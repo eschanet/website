@@ -2,10 +2,10 @@
 .projects {
     width: 100%;
     column-width: 320px;
-    column-count: 1;
+    column-count: 2;
 
     > div {
-        display: inline-block;
+        break-inside: avoid-column;
     }
 }
 
