@@ -46,6 +46,8 @@
     @include vendor( 'flex-direction', 'column');
     background: _palette(bg);
     border: solid 1px _palette(border);
+    // border-radius: .4em;
+    // box-shadow: 0px 5px 20px 1px;
     margin: 0 0 _size(element-margin);
     width: 100%;
     
