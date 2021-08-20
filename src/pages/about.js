@@ -22,7 +22,7 @@ const About = ({ data }) => {
         <header>
           <div className="title">
             <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
-            {/* <p>(in about {fields.readingTime.minutes.toFixed()} min)</p> */}
+            <p>(in about {fields.readingTime.minutes.toFixed()} min)</p>
           </div>
         </header>
         {/* <h1>{frontmatter.title}</h1>
