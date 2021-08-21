@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Eric Schanet",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Eric Schanet's personal website and blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Eric Schanet <eric.schanet@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -60,9 +60,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/eschanet/website.git"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/eschanet/website/issues"
   }
 }

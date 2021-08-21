@@ -55,8 +55,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Eric Schanet's personal website and blog`,
+        short_name: `Eric Schanet`,
         start_url: `/`,
         background_color: `#F4F4F4`,
         theme_color: `#FFFFFF`,
