@@ -8,11 +8,11 @@
 	.posts {
 		width: 100%;
 		column-width: 320px;
-		column-count: 2;
+		column-count: 1;
 
-		> div {
-			display: inline-block;
-		}
+		// > div {
+		// 	display: inline-block;
+		// }
 	}
 
 	.post {

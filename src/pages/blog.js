@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby";
 import Main from "../components/main"
 import Seo from "../components/seo"
 
+import BlogCell from '../components/Blog/BlogCell';
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
@@ -26,12 +27,12 @@ const BlogIndex = ({ data }) => {
         </header>
         <div className="posts">
         {posts.map(({ node: post }) => (
-            <li key={post.id}>
-              <Link to={post.fields.slug}>
-                <h2>{post.frontmatter.title}</h2>
-              </Link>
-              <p>{post.excerpt}</p>
-            </li>
+            <Link to={post.fields.slug}>
+              <BlogCell
+                data={post}
+                key={post.frontmatter.title}
+              />
+            </Link>
           ))}
       </div>
       </article>
@@ -53,9 +54,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            excerpt
           }
           fields {
             slug
+            readingTime {
+              text
+            }
           }
         }
       }

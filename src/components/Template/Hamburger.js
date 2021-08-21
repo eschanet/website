@@ -1,9 +1,9 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'gatsby';
-import routes from '../../data/routes';
+import routes from '../../../content/routes';
 
-const Menu = lazy(() => import('react-burger-menu/lib/menus/slide'));
+import { slide as Menu } from 'react-burger-menu'
 
 const Hamburger = () => {
   const [open, setOpen] = useState(false);
@@ -23,19 +23,17 @@ const Hamburger = () => {
           )}
         </ul>
       </nav>
-      <Suspense fallback={<></>}>
-        <Menu right isOpen={open}>
-          <ul className="hamburger-ul">
-            {routes.map((l) => (
-              <li key={l.label}>
-                <Link to={l.path} onClick={() => setOpen(!open)}>
-                  <h3 className={l.index && 'index-li'}>{l.label}</h3>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Menu>
-      </Suspense>
+      <Menu right isOpen={open}>
+        <ul className="hamburger-ul">
+          {routes.map((l) => (
+            <li key={l.label}>
+              <Link to={l.path} onClick={() => setOpen(!open)}>
+                <h3 className={l.index && 'index-li'}>{l.label}</h3>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Menu>
     </div>
   );
 };

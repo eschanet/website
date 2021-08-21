@@ -10,7 +10,7 @@ import Seo from "../seo"
 
 const shortcodes = { Link } // Provide common components here
 
-export default function BlogTemplate({ data: { mdx } }) {
+export default function BlogPost({ data: { mdx } }) {
   const { frontmatter, body, fields } = mdx
 
   return (
@@ -23,19 +23,15 @@ export default function BlogTemplate({ data: { mdx } }) {
         <header>
           <div className="title">
             <h2 data-testid="heading">{frontmatter.title}</h2>
-            <p>(about {fields.readingTime.text})</p>
+            <p>about {fields.readingTime.text} &#8226; {dayjs(frontmatter.date).format('MMMM, DD, YYYY')}</p>
           </div>
         </header>
-      <header>
-        <h1>{frontmatter.title}</h1>
-        {/* <h3><a href={data.link}>{data.title}</a></h3> */}
-        <time className="published">{dayjs(frontmatter.date).format('MMMM, DD, YYYY')}</time>
-      </header>
-      <MDXProvider components={shortcodes}>
-        <MDXRenderer frontmatter={frontmatter}>{body}</MDXRenderer>
-      </MDXProvider>
-    </article>
-  </Main>
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer frontmatter={frontmatter}>{body}</MDXRenderer>
+        </MDXProvider>
+        <br></br>
+      </article>
+    </Main>
   )
 }
 

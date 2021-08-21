@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table';
-import data from '../../data/stats/personal';
+import data from '../../../content/stats/personal';
 
 const PersonalStats = () => (
   <>

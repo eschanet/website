@@ -5,6 +5,7 @@ import ContactIcons from '../Contact/ContactIcons';
 
 import profile from '../../images/me_icon.jpg';
 
+const isBrowser = () => typeof window !== "undefined"
 const SideBar = () => (
   <section id="sidebar">
     <section id="intro">
@@ -28,7 +29,7 @@ const SideBar = () => (
       </p>
       <ul className="actions">
         <li>
-          {!window.location.pathname.includes('/resume') ? <Link to="/resume" className="button">Learn More</Link> : <Link to="/about" className="button">About Me</Link>}
+          {isBrowser() && !window.location.pathname.includes('/resume') ? <Link to="/resume" className="button">Learn More</Link> : <Link to="/about" className="button">About Me</Link>}
         </li>
       </ul>
     </section>

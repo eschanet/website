@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Hamburger from './Hamburger';
-import routes from '../../data/routes';
+import routes from '../../../content/routes';
 
-// Websites Navbar, displays routes defined in 'src/data/routes'
+// Websites Navbar, displays routes defined in 'content/routes'
 const Navigation = () => (
   <header id="header">
     <h1 className="index-link">
