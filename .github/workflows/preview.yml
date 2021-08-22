@@ -23,12 +23,21 @@ jobs:
     needs: predeploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    
     - name: Use Node.js 15
       uses: actions/setup-node@v2
       with:
         node-version: '15'
-    - run: npm ci
+    
+    - name: Install Project Dependencies
+      run: npm ci
+
+    - name: Install Gatsby CLI
+      run: npm install -g gatsby-cli@2.12.34
+
     - name: Set deployment status
       uses: pbrandone/create-status-action@master
       with:
@@ -36,11 +45,15 @@ jobs:
         state: pending
         description: Preparing deploy preview
         context: Deploy Preview URL
+
     - name: Build and Statically Render
-        run: PATH_PREFIX=${{ github.event.number }} npm run build --prefix-paths
-      env:
-        NODE_ENV: production
-    - uses: jakejarvis/s3-sync-action@master
+      run: PATH_PREFIX=${{ github.event.number }} gatsby build --prefix-paths
+
+    - name: Verify build
+      run: ls -la public
+
+    - name: Deploy to S3 preview bucket
+      uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks
       env:
@@ -49,7 +62,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SOURCE_DIR: 'public/'
         DEST_DIR: ${{ github.event.number }}
-
+  
     - name: Set success deployment status
       if: success()
       uses: pbrandone/create-status-action@master
