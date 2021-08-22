@@ -5,6 +5,7 @@ module.exports = {
     author: `@eschanet`,
     siteUrl: `https://eschanet.com/`,
   },
+  pathPrefix: process.env.PATH_PREFIX,
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
