@@ -1,5 +1,5 @@
 {
-  "name": "Eric Schanet",
+  "name": "eschanet.com",
   "private": true,
   "description": "Eric Schanet's personal website and blog",
   "version": "0.1.0",
@@ -43,6 +43,8 @@
     "sass": "^1.37.5"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.0",
+    "eslint-config-react-app": "^6.0.0",
     "prettier": "2.3.2"
   },
   "keywords": [
