@@ -17,6 +17,8 @@ import papers from '../../content/resume/papers';
 import positions from '../../content/resume/positions';
 import { skills, categories } from '../../content/resume/skills';
 
+import resumeFile from '../../content/resume/Resume_EricSchanet_DS.pdf' 
+
 const sections = [
   'Education',
   'Experience',
@@ -26,7 +28,6 @@ const sections = [
   'References',
 ];
 
-const { PUBLIC_URL } = process.env;
 
 const Resume = () => (
   <Main
@@ -46,7 +47,7 @@ const Resume = () => (
         </div>
       </header>
       <h6>
-        A PDF version of the resume is available to <a href={`${PUBLIC_URL}/resume/Resume_EricSchanet.pdf`}>download</a>.
+        A PDF version of the resume is available to <a href={resumeFile}>download</a>.
       </h6>
       <Education data={degrees} />
       <Experience data={positions} />
