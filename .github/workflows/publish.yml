@@ -1,4 +1,4 @@
-name: publish website
+name: deploy website
 on:
   push:
     tags:
@@ -33,7 +33,7 @@ jobs:
         node-version: '15'
     - run: npm ci
     - name: Build and Statically Render
-      run: npm run predeploy
+      run: npm run build
       env:
         NODE_ENV: production
     - uses: jakejarvis/s3-sync-action@master
