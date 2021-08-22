@@ -1,41 +1,57 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import raw from 'raw.macro';
+import { Link, graphql } from "gatsby";
 
-import Main from '../layouts/Main';
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-// uses babel to load contents of file
-const markdown = raw('../data/about.md');
+import Main from "../components/main"
+import Seo from "../components/seo"
 
-const count = markdown.split(/\s+/)
-  .map((s) => s.replace(/\W/g, ''))
-  .filter((s) => s.length).length;
+const shortcodes = { Link } // Provide common components here
 
-// Make all hrefs react router links
-const LinkRenderer = ({ ...children }) => <Link {...children} />;
+const About = ({ data }) => {
+  const { body, frontmatter, fields } = data.mdx
 
-const About = () => (
-  <Main
-    title="About"
-    description="Learn about Eric Schanet"
-  >
-    <article className="post markdown" id="about">
-      <header>
-        <div className="title">
-          <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
-          <p>(in about {count} words)</p>
-        </div>
-      </header>
-      <ReactMarkdown
-        source={markdown}
-        renderers={{
-          Link: LinkRenderer,
-        }}
-        escapeHtml={false}
-      />
-    </article>
-  </Main>
-);
+  return (
+    <Main
+      title="About"
+      description="Learn about Eric Schanet"
+    >
+      <Seo title="About me" />
+      <article className="post markdown" id="about">
+        <header>
+          <div className="title">
+            <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
+            <p>(in about {fields.readingTime.minutes.toFixed()} min)</p>
+          </div>
+        </header>
+        {/* <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.date}</p> */}
+        {/* <MDXProvider components={shortcodes}> */}
+        <MDXRenderer>{body}</MDXRenderer>
+        {/* </MDXProvider> */}
+      </article>
+    </Main>
+  )
+}
 
 export default About;
+
+export const pageQuery = graphql`
+query {
+  mdx(fileAbsolutePath: {regex: "/about\/about/"}) {
+    body
+    excerpt(pruneLength: 160)
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      title
+    }
+    fields {
+      readingTime {
+        text
+        minutes
+      }
+    }
+  }
+}
+`

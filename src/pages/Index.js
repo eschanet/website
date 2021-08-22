@@ -1,12 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import * as React from "react"
+import { Link } from "gatsby"
+// import { Router } from "@reach/router"
+// import { StaticImage } from "gatsby-plugin-image"
 
-import Main from '../layouts/Main';
+import Main from "../components/main"
+import Seo from "../components/seo"
 
-const Index = () => (
+import '../../static/css/main.scss';
+
+const App = () => (
   <Main
     description={"Eric Schanet's personal website. Munich based research fellow in High Energy Physics."}
   >
+    <Seo title="Home" />
     <article className="project" id="index">
       <header>
         <div className="title">
@@ -28,4 +34,4 @@ const Index = () => (
   </Main>
 );
 
-export default Index;
+export default App

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, graphql } from 'gatsby';
 
-import Main from '../layouts/Main';
+import Main from '../components/main';
+import Seo from '../components/seo';
 import EmailLink from '../components/Contact/EmailLink';
 import ContactIcons from '../components/Contact/ContactIcons';
 
@@ -10,6 +11,7 @@ const Contact = () => (
     title="Contact"
     description="Contact Eric Schanet via email @ eric.schanet@gmail.com"
   >
+    <Seo title="Contact" />
     <article className="project" id="contact">
       <header>
         <div className="title">

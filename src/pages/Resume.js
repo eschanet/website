@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, graphql } from "gatsby";
 
-import Main from '../layouts/Main';
+import Main from "../components/main"
+import Seo from "../components/seo"
 
 import Conference from '../components/Resume/Conference';
 import Education from '../components/Resume/Education';
@@ -10,11 +11,11 @@ import Publication from '../components/Resume/Publication';
 import References from '../components/Resume/References';
 import Skills from '../components/Resume/Skills';
 
-import degrees from '../data/resume/degrees';
-import talks from '../data/resume/talks';
-import papers from '../data/resume/papers';
-import positions from '../data/resume/positions';
-import { skills, categories } from '../data/resume/skills';
+import degrees from '../../content/resume/degrees';
+import talks from '../../content/resume/talks';
+import papers from '../../content/resume/papers';
+import positions from '../../content/resume/positions';
+import { skills, categories } from '../../content/resume/skills';
 
 const sections = [
   'Education',
