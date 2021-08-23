@@ -1,5 +1,5 @@
 [![Website eschanet.com](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://eschanet.com/)
-[![build](https://github.com/eschanet/website/workflows/build/badge.svg)](https://github.com/eschanet/website/actions/workflows/node.js.yml)
+[![build](https://github.com/eschanet/website/workflows/publish/badge.svg)](https://github.com/eschanet/website/actions/workflows/publish.yml)
 [![CodeQL](https://github.com/eschanet/website/workflows/CodeQL/badge.svg)](https://github.com/eschanet/website/actions/workflows/codeql-analysis.yml)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![GitHub release](https://img.shields.io/github/release/eschanet/website.svg)](https://github.com/eschanet/website/releases/)
