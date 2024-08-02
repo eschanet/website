@@ -9,11 +9,9 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import About from '../pages/About';
-import Blog from '../pages/Blog';
 import Contact from '../pages/Contact';
 import Index from '../pages/Index';
 import NotFound from '../pages/NotFound';
-import Projects from '../pages/Projects';
 import Resume from '../pages/Resume';
 import Stats from '../pages/Stats';
 
