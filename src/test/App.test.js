@@ -27,16 +27,6 @@ const pages = [
     component: About,
   },
   {
-    route: '/projects',
-    heading: 'Projects',
-    component: Projects,
-  },
-  {
-    route: '/blog',
-    heading: 'Blog',
-    component: Blog,
-  },
-  {
     route: '/stats',
     heading: 'Stats',
     component: Stats,
