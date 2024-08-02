@@ -7,7 +7,7 @@
 
 # [eschanet.com](http://eschanet.com) 
 
-My personal website built using javascript with React, Express, React-Router, Github actions and a bunch of other fancy stuff. 
+My personal website that I tinker with when I'm bored. 
 
 ## Set up
 
