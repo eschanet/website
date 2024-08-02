@@ -1,7 +1,7 @@
 {
   "name": "eschanet.com",
   "private": true,
-  "description": "Eric Schanet's personal website and blog",
+  "description": "Eric Schanet's personal website",
   "version": "0.1.0",
   "author": "Eric Schanet <eric.schanet@gmail.com>",
   "dependencies": {
@@ -40,7 +40,8 @@
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.0.9",
     "react-live": "^2.3.0",
-    "sass": "^1.37.5"
+    "sass": "^1.37.5",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.0",

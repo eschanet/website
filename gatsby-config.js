@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Eric Schanet`,
-    description: `Eric Schanet's personal website and blog`,
+    description: `Eric Schanet's personal website`,
     author: `@eschanet`,
     siteUrl: `https://eschanet.com/`,
   },
@@ -10,9 +10,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Eric Schanet's personal website and blog`,
+        name: `Eric Schanet's personal website`,
         short_name: `Eric Schanet`,
-        description: `This is Eric Schanet's personal website and blog.`,
+        description: `This is Eric Schanet's personal website.`,
         lang: `en`,
         display: `standalone`,
         icon: `src/images/favicon/android-chrome-512x512.png`,
@@ -56,7 +56,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Eric Schanet's personal website and blog`,
+        name: `Eric Schanet's personal website`,
         short_name: `Eric Schanet`,
         start_url: `/`,
         background_color: `#F4F4F4`,
