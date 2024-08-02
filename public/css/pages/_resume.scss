@@ -1,0 +1,231 @@
+/* Resume */
+
+#resume {
+
+	.link-to {
+		position: relative;
+		top: -4.5em;
+	}
+
+	.link-container h4 {
+		text-decoration:none;
+		border-bottom: none;
+		display: inline-flex;
+
+		a {
+				padding: 0 .5em;
+				margin: 0;
+		}
+	}
+
+	.education {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+	}
+
+	.publication {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		.text {
+			font-weight: normal;
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.02em;
+			font-size: 0.9em;
+		}
+	}
+
+	.conference {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		.text {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: 0.9em;
+		}
+	}
+
+	.experience {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+
+		}
+		.job {
+			margin: 1em;
+			p{
+				margin: 0;
+			}
+		}
+	}
+
+	.jobs-container {
+		.points {
+			li {
+				margin: 0;
+				padding: 0;
+					font-size: .9em;
+			}
+		}
+	}
+
+	.courses {
+		padding-top: 1.6em;
+		.title {
+			text-align: center;
+		}
+		.course-list {
+			text-align: center;
+
+			h4 {
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.paper-container {
+		h4 {
+			font-weight: normal;
+		}
+	
+		.paper {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+		}
+
+		.title{
+			font-weight: bold;
+		}
+	
+		.doi {
+			text-transform: none;
+			margin-bottom: 2em;
+		}
+	
+	}
+	.degree-container {
+		h4 {
+			font-weight: normal;
+		}
+	
+		.degree {
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.16em;
+			font-size: .8em;
+		}
+	
+		.school {
+			white-space: pre-wrap;
+			line-height: 1.75em;
+			text-transform: none;
+			padding-top: 1em;
+			margin-bottom: 1em;
+		}
+	}
+	
+	.talk-container {	
+		.talk {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+		}
+	
+		.conference {
+			font-weight: bold;
+		}
+	
+		.material {
+			text-transform: none;
+			text-align: left;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+			margin-bottom: 2em;
+		}
+	}
+
+	.skills {
+		margin-top: 2em;
+		.title {
+			text-align: center;
+		}
+		.text {
+			font-weight: normal;
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.02em;
+			font-size: 0.9em;
+		}
+	}
+	.references {
+		margin: 2em 0;
+		.title {
+			text-align: center;
+		}
+	}
+}
+
+.daterange {
+	margin-bottom: .2em;
+}
+
+.courses .course-number {
+	display: inline;
+}
+.courses .course-name {
+	display: inline;
+	font-family: "Raleway", Helvetica, sans-serif;
+	font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  line-height: 2.5;
+  margin-top: -1em;
+  text-transform: uppercase;
+}
+
+.courses ul li{
+  display: inline;
+}
+
+.course-dot {
+	display: inline;
+	// display: none;
+}
+
+@include breakpoint(small) {
+	.course-dot {
+		display: none;
+	}
+	.course-container a{
+		display: block;
+	}
+}
