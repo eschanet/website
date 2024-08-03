@@ -1,7 +1,6 @@
 {
   "name": "personal-site",
   "version": "4.0.0",
-  "homepage": "https://eschanet.com/",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -9,6 +8,9 @@
   },
   "engines": {
     "node": ">=16.x"
+  },
+  "reactSnap": {
+    "source": "public"
   },
   "scripts": {
     "analyze": "npm run build && source-map-explorer build/static/js/*.chunk.js",
