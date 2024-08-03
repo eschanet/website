@@ -12,24 +12,21 @@ const SideBar = () => (
         <img src={`${PUBLIC_URL}/images/me.jpg`} alt="" />
       </Link>
       <header>
-        <h2>Michael D&apos;Angelo</h2>
+        <h2>Eric Schanet</h2>
         <p>
-          <a href="mailto:michael@mldangelo.com">michael@mldangelo.com</a>
+          <a href="mailto:eric.schanet@gmail.com">eric.schanet@gmail.com</a>
         </p>
       </header>
     </section>
 
     <section className="blurb">
       <h2>About</h2>
-      <p>
-        Hi, I&apos;m Michael. I am a{' '}
-        <a href="https://icme.stanford.edu/">Stanford ICME</a> graduate, YC
-        Alumni, and the VP of Engineering at{' '}
-        <a href="https://smileidentity.com">Smile Identity</a>. Previously, I
-        was the co-founder and CTO of <a href="https://arthena.com">Arthena</a>,
-        co-founder of <a href="https://matroid.com">Matroid</a>, and worked at{' '}
-        <a href="https://planet.com">Planet</a> and{' '}
-        <a href="https://facebook.com">Facebook</a>.
+      <p>Hi, I&apos;m Eric, a particle physicist with 3+ years of experience
+        in applying data science techniques, machine learning algorithms and statistical
+        methods to scientific data.
+        I am a research fellow at the <a href="https://www.uni-muenchen.de/index.html">Ludwig-Maximilians-University Munich</a>{' '}
+        and work at the <a href="https://atlas.cern/">ATLAS experiment</a> at the Large Hadron Collider at <a href="https://home.cern/">CERN</a>.
+        I am also a co-founder of <a href="https://www.weabe.lu/">Weabe</a> where I worked as a software engineer and consultant.
       </p>
       <ul className="actions">
         <li>
@@ -49,7 +46,7 @@ const SideBar = () => (
     <section id="footer">
       <ContactIcons />
       <p className="copyright">
-        &copy; Michael D&apos;Angelo <Link to="/">mldangelo.com</Link>.
+        &copy; Eric Schanet <Link to="/">eschanet.com</Link>.
       </p>
     </section>
   </section>
