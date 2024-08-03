@@ -19,13 +19,16 @@
 
   .education {
     .title {
+			margin-top: 2.5em;
       text-align: center;
       margin-bottom: 2em;
     }
   }
   .experience {
     .title {
-      text-align: center;
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
     }
     .job {
       margin: 1em;
@@ -34,6 +37,42 @@
       }
     }
   }
+
+  .conference {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		.text {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: 0.9em;
+		}
+	}
+
+  .publication {
+
+		.title {
+			margin-top: 2.5em;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+
+		.text {
+			font-weight: normal;
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.02em;
+			font-size: 0.9em;
+		}
+	}
 
   .jobs-container {
     .points {
@@ -59,15 +98,89 @@
     }
   }
 
-  .skills {
-    margin-top: 2em;
-    .title {
-      text-align: center;
-      p {
-        font-size: 0.9em;
-      }
-    }
-  }
+  .paper-container {
+		h4 {
+			font-weight: normal;
+		}
+	
+		.paper {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+		}
+
+		.title{
+			font-weight: bold;
+		}
+	
+		.doi {
+			text-transform: none;
+			margin-bottom: 2em;
+		}
+	
+	}
+	.degree-container {
+		h4 {
+			font-weight: normal;
+		}
+	
+		.degree {
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.16em;
+			font-size: .8em;
+		}
+	
+		.school {
+			white-space: pre-wrap;
+			line-height: 1.75em;
+			text-transform: none;
+			padding-top: 1em;
+			margin-bottom: 1em;
+		}
+	}
+	
+	.talk-container {	
+		.talk {
+			margin-bottom: 0.5em;
+			text-align: left;
+			line-height: 1.5em;
+
+			text-transform: none;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+		}
+	
+		.conference {
+			font-weight: bold;
+		}
+	
+		.material {
+			text-transform: none;
+			text-align: left;
+			letter-spacing: 0.1em;
+			font-size: .8em;
+			margin-bottom: 2em;
+		}
+	}
+
+	.skills {
+		margin-top: 2em;
+		.title {
+			text-align: center;
+		}
+		.text {
+			font-weight: normal;
+			margin-bottom: .1em;
+			text-transform: none;
+			letter-spacing: 0.02em;
+			font-size: 0.9em;
+		}
+	}
 
   .summary {
     margin-bottom: 0.5em;
@@ -84,25 +197,6 @@
 
 .daterange {
   margin-bottom: 0.2em;
-}
-
-.degree-container {
-  h4 {
-    font-weight: normal;
-  }
-
-  .degree {
-    margin-bottom: 0.1em;
-    text-transform: none;
-    letter-spacing: 0.16em;
-    font-size: 0.8em;
-  }
-
-  .school {
-    text-transform: none;
-    padding-top: 0.3em;
-    margin-bottom: 1em;
-  }
 }
 
 .courses .course-number {

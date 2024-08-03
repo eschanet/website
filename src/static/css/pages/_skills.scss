@@ -19,6 +19,32 @@
   color: _palette(accent) !important;
 }
 
+.skillitem {
+	box-shadow: none;
+	display:inline;
+	outline: none;
+	font-size: 0.9em;
+
+}
+
+.skillitem::before {
+    content: ' ';
+}
+
+.skillitem::after {
+    content: ' ';
+	white-space: normal;
+	word-spacing: 1em;
+	/*
+	 = nav@padding-right - this actually makes width
+	*/
+	background-image: radial-gradient(circle, black, black 20%, transparent 20%);
+	background-size: 1em 1em;
+	background-repeat: no-repeat;
+	background-position: center center;
+	opacity: 0.5;
+}
+
 .skillbar {
   position: relative;
   display: block;
