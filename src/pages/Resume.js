@@ -20,8 +20,8 @@ import { skills, categories } from '../data/resume/skills';
 const sections = {
   Education: () => <Education data={degrees} />,
   Experience: () => <Experience data={positions} />,
-  Publication: () => <Publication data={papers} />,
-  Conference: () => <Conference data={talks} />,
+  Publications: () => <Publication data={papers} />,
+  Conferences: () => <Conference data={talks} />,
   Skills: () => <Skills skills={skills} categories={categories} />,
   References: () => <References />,
 };
@@ -49,7 +49,7 @@ const Resume = () => (
         </div>
       </header>
       <h6>
-        A PDF version of the resume is available to <a href={`${PUBLIC_URL}/resume/Resume_EricSchanet.pdf`}>download</a>.
+        A PDF version of the resume is available to <a className="resume-download" href={`${PUBLIC_URL}/resume/Resume_EricSchanet.pdf`}>download</a>.
       </h6>
       {Object.entries(sections).map(([name, Section]) => (
         <Section key={name} />
