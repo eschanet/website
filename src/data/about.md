@@ -12,7 +12,7 @@ methods to scientific data.
 
 My core competencies include designing and building distributed systems, high-performance and cloud computing, predictive modelling using machine learning and stochastic methods, quantitative problem solving in cross-functional teams, and data visualization and interpretation. I also have significant experience working in large, international collaborations and leading projects from initiation to completion in an agile manner. I'm a co-author of over 270 peer-reviewed scientific publications
 
-I always open to new adventures; if you would like to meet for a coffee, please get in touch.
+I am always open to new adventures; just get in touch if you would like to meet for a coffee.
 <br/><br/>
 
 ### I like
