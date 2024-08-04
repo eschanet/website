@@ -21,12 +21,11 @@ const SideBar = () => (
 
     <section className="blurb">
       <h2>About</h2>
-      <p>Hi, I&apos;m Eric, a particle physicist with 3+ years of experience
-        in applying data science techniques, machine learning algorithms and statistical
-        methods to scientific data.
-        I am a research fellow at the <a href="https://www.uni-muenchen.de/index.html">Ludwig-Maximilians-University Munich</a>{' '}
-        and work at the <a href="https://atlas.cern/">ATLAS experiment</a> at the Large Hadron Collider at <a href="https://home.cern/">CERN</a>.
-        I am also a co-founder of <a href="https://www.weabe.lu/">Weabe</a> where I worked as a software engineer and consultant.
+      <p>Hi, I&apos;m Eric, a senior software engineer at <a href="https://www.ubs.com/">UBS</a>{' '} in Zurich with 5+ years
+        of experience building innovative, scalable and production-ready
+        solutions for complex, quantitative problems.
+        Previously, I was a particle physics research fellow at the <a href="https://www.uni-muenchen.de/index.html">LMU Munich</a>{' '}, working on the <a href="https://atlas.cern/">ATLAS experiment</a> at <a href="https://home.cern/">CERN</a>.
+        I am also a co-founder of <a href="https://www.weabe.lu/">Weabe S.A.</a> where I worked as a software engineer and consultant.
       </p>
       <ul className="actions">
         <li>

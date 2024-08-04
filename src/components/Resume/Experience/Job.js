@@ -5,13 +5,13 @@ import Markdown from 'markdown-to-jsx';
 
 const Job = ({
   data: {
-    company, position, url, startDate, endDate, summary, highlights,
+    company, position, link, startDate, endDate, summary, highlights,
   },
 }) => (
   <article className="jobs-container">
     <header>
       <h4>
-        <a href={url}>{company}</a> - {position}
+        <a href={link}>{company}</a> - {position}
       </h4>
       <p className="daterange">
         {' '}
@@ -48,7 +48,7 @@ Job.propTypes = {
   data: PropTypes.shape({
     company: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string,
     summary: PropTypes.string,

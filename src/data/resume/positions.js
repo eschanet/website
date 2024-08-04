@@ -1,5 +1,18 @@
 const positions = [
   {
+    company: 'UBS Switzerland AG',
+    position: 'Senior Software Engineer',
+    link: 'https://www.ubs.com/',
+    startDate: 'October 2021',
+    highlights: [
+      'Technical lead for the migration of a business-owned risk and portfolio management platform into Azure Cloud.',
+      'Improved service scalability and uptime by migrating monolithic python application to microservice-based, API-first architecture using cloud-native resources like Kubernetes.',
+      'Significant business risk reduction by reducing the portfolio data pipeline lag from 3 to 1 business days through implementation of a data feed from the central mainframe.',
+      'Increase allocation and pledge structure transparency through bespoke network-based asset allocation algorithm.',
+      'Improvements to team efficiency, time to market and SLA through introduction of comprehensive CI/CD pipelines for all projects.',
+    ],
+  },
+  {
     company: 'Ludwig-Maximilians-University Munich',
     position: 'Research Fellow',
     link: 'https://www.etp.physik.uni-muenchen.de',
