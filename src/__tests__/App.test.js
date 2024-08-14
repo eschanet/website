@@ -53,6 +53,7 @@ describe('renders the app', () => {
     await act(async () => {
       await aboutLink.click();
     });
+
     expect(document.title).toContain('About |');
     expect(window.location.pathname).toBe('/about');
     expect(window.scrollTo).toHaveBeenNthCalledWith(1, 0, 0);
