@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* Monochrome ramp. Only one hue exists in the system; "accent" is a
+   near-black/near-white inversion rather than a colour, keeping the
+   palette strictly monochrome while still reading as deliberate. */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --color-ink-50: oklch(98.5% 0 0);
+  --color-ink-100: oklch(96.5% 0 0);
+  --color-ink-200: oklch(92% 0 0);
+  --color-ink-300: oklch(85% 0 0);
+  --color-ink-400: oklch(70% 0 0);
+  --color-ink-500: oklch(55% 0 0);
+  --color-ink-600: oklch(44% 0 0);
+  --color-ink-700: oklch(34% 0 0);
+  --color-ink-800: oklch(24% 0 0);
+  --color-ink-900: oklch(16% 0 0);
+  --color-ink-950: oklch(11% 0 0);
+}
+
+@layer base {
+  :root {
+    --bg: var(--color-ink-50);
+    --fg: var(--color-ink-900);
+    --muted: var(--color-ink-500);
+    --rule: var(--color-ink-200);
+    --raised: oklch(100% 0 0);
+  }
+
+  .dark {
+    --bg: var(--color-ink-950);
+    --fg: var(--color-ink-100);
+    --muted: var(--color-ink-400);
+    --rule: var(--color-ink-800);
+    --raised: var(--color-ink-900);
+  }
+
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

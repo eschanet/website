@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Eric Schanet</title>
+    <script>
+      // Applied before paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var s = localStorage.getItem('theme');
+          var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+        } catch (e) {
+          /* storage unavailable - fall back to the media query in CSS */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

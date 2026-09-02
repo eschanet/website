@@ -1,4 +1,7 @@
-.cache
-package.json
+dist
+coverage
+node_modules
+playwright-report
+test-results
 package-lock.json
-public
+infra/audit
