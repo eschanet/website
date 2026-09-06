@@ -18,6 +18,8 @@
     "isolatedModules": true,
     "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

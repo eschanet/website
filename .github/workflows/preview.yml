@@ -2,65 +2,63 @@ name: deploy preview
 on: pull_request
 
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    
-    - name: Use Node.js 15
-      uses: actions/setup-node@v2
-      with:
-        node-version: '15'
-    
-    - name: Install Project Dependencies
-      run: npm ci
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Install Gatsby CLI
-      run: npm install -g gatsby-cli@2.12.34
+      - name: Use Node.js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
 
-    - name: Set deployment status
-      uses: pbrandone/create-status-action@master
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        state: pending
-        description: Preparing deploy preview
-        context: Deploy Preview URL
+      - name: Install Project Dependencies
+        run: npm ci
 
-    - name: Build and Statically Render
-      run: PATH_PREFIX=preview/${{ github.event.number }} gatsby build --prefix-paths
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@2.12.34
 
-    - name: Verify build
-      run: ls -la public
+      - name: Set deployment status
+        uses: pbrandone/create-status-action@master
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          state: pending
+          description: Preparing deploy preview
+          context: Deploy Preview URL
 
-    - name: Deploy to S3 preview bucket
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: 'public/'
-        DEST_DIR: preview/${{ github.event.number }}
+      - name: Build and Statically Render
+        run: PATH_PREFIX=preview/${{ github.event.number }} gatsby build --prefix-paths
 
-    - name: Set success deployment status
-      if: success()
-      uses: pbrandone/create-status-action@master
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        state: success
-        description: Deploy preview ready!
-        url: https://eschanet.com/preview/${{ github.event.number }}
-        context: Deploy Preview URL
+      - name: Verify build
+        run: ls -la public
 
-    - name: Set failed deployment status
-      if: failure()
-      uses: pbrandone/create-status-action@master
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        state: failure
-        description: Failed to deploy preview
-        context: Deploy Preview URL
+      - name: Deploy to S3 preview bucket
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: 'public/'
+          DEST_DIR: preview/${{ github.event.number }}
+
+      - name: Set success deployment status
+        if: success()
+        uses: pbrandone/create-status-action@master
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          state: success
+          description: Deploy preview ready!
+          url: https://eschanet.com/preview/${{ github.event.number }}
+          context: Deploy Preview URL
+
+      - name: Set failed deployment status
+        if: failure()
+        uses: pbrandone/create-status-action@master
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          state: failure
+          description: Failed to deploy preview
+          context: Deploy Preview URL
