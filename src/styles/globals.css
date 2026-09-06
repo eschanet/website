@@ -10,34 +10,38 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 
-  --color-ink-50: oklch(98.5% 0 0);
-  --color-ink-100: oklch(96.5% 0 0);
-  --color-ink-200: oklch(92% 0 0);
-  --color-ink-300: oklch(85% 0 0);
-  --color-ink-400: oklch(70% 0 0);
-  --color-ink-500: oklch(55% 0 0);
-  --color-ink-600: oklch(44% 0 0);
-  --color-ink-700: oklch(34% 0 0);
-  --color-ink-800: oklch(24% 0 0);
-  --color-ink-900: oklch(16% 0 0);
-  --color-ink-950: oklch(11% 0 0);
+  /* Warm-neutral monochrome ramp (hue 95, chroma <=0.008 so it reads as grey
+     with a little warmth rather than a colour). Values chosen against WCAG:
+     body text lands ~8.2:1 in both themes -- softer than a black-on-white
+     ~16:1, while keeping a real margin over the 4.5:1 AA floor. */
+  --color-ink-50: oklch(98.5% 0.002 95);
+  --color-ink-100: oklch(96.5% 0.004 95);
+  --color-ink-200: oklch(93% 0.004 95);
+  --color-ink-300: oklch(88.5% 0.004 95);
+  --color-ink-400: oklch(78% 0.006 95);
+  --color-ink-500: oklch(65% 0.008 95);
+  --color-ink-600: oklch(52% 0.008 95);
+  --color-ink-700: oklch(40% 0.008 95);
+  --color-ink-800: oklch(28% 0.006 95);
+  --color-ink-900: oklch(24% 0.006 95);
+  --color-ink-950: oklch(19% 0.005 95);
 }
 
 @layer base {
   :root {
-    --bg: var(--color-ink-50);
-    --fg: var(--color-ink-900);
-    --muted: var(--color-ink-500);
-    --rule: var(--color-ink-200);
-    --raised: oklch(100% 0 0);
+    --bg: oklch(96.5% 0.004 95); /* #f4f3f0 warm off-white, not pure white */
+    --fg: var(--color-ink-700); /* #494843 charcoal, not black - 8.3:1 */
+    --muted: var(--color-ink-600); /* 5.0:1, passes AA */
+    --rule: var(--color-ink-300);
+    --raised: var(--color-ink-50);
   }
 
   .dark {
-    --bg: var(--color-ink-950);
-    --fg: var(--color-ink-100);
-    --muted: var(--color-ink-400);
+    --bg: var(--color-ink-900); /* #201f1c lifted off black */
+    --fg: oklch(78% 0.006 95); /* #b8b7b3 soft light - 8.2:1 */
+    --muted: var(--color-ink-500); /* 5.1:1, passes AA */
     --rule: var(--color-ink-800);
-    --raised: var(--color-ink-900);
+    --raised: var(--color-ink-950);
   }
 
   html {
