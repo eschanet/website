@@ -56,7 +56,6 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # Mac files
 .DS_Store
@@ -67,3 +66,24 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Local infrastructure audit — contains AWS account identifiers, never commit (public repo)
+infra/audit/
+# Terraform
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.*
+infra/terraform/*.tfvars
+infra/terraform/.terraform.lock.hcl
+crash.log
+
+# Vite build output
+dist/
+dist-ssr/
+
+# Playwright
+playwright-report/
+test-results/
+
+# Coverage
+coverage/

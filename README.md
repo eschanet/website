@@ -1,34 +1,61 @@
-[![Website eschanet.com](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://eschanet.com/)
-[![build](https://github.com/eschanet/website/workflows/build/badge.svg)](https://github.com/eschanet/website/actions/workflows/node.js.yml)
-[![CodeQL](https://github.com/eschanet/website/workflows/CodeQL/badge.svg)](https://github.com/eschanet/website/actions/workflows/codeql-analysis.yml)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![GitHub release](https://img.shields.io/github/release/eschanet/website.svg)](https://github.com/eschanet/website/releases/)
-[![GitHub tag](https://img.shields.io/github/tag/eschanet/website.svg)](https://github.com/eschanet/website/tags/)
+# eschanet.com
 
-# [eschanet.com](http://eschanet.com) 
+Personal website. Static site prerendered to HTML, hosted on S3 behind CloudFront.
 
-My personal website built using javascript with React, Express, React-Router, Github actions and a bunch of other fancy stuff. 
+## Stack
 
-## Set up
+| Concern    | Choice                                      |
+| ---------- | ------------------------------------------- |
+| Build      | Vite 8                                      |
+| UI         | React 19 + TypeScript 6 (strict)            |
+| Routing    | React Router 7                              |
+| Styling    | Tailwind CSS 4, monochrome OKLCH token ramp |
+| Icons      | lucide-react, brand marks inlined           |
+| Content    | MDX with Zod-validated frontmatter          |
+| Unit tests | Vitest + Testing Library                    |
+| E2E / a11y | Playwright + axe-core                       |
 
-1. Download the repository and install the dependencies:
+## Commands
 
-    ```bash
-    git clone git://github.com/eschanet/website.git
-    cd website
-    npm install
-    ```
+```sh
+npm run dev          # dev server
+npm run build        # client build, SSR build, prerender to dist/
+npm run verify       # typecheck + lint + format check + unit tests
+npm run test:e2e     # Playwright against the built output
+```
 
-2. Next, create an `.env` file:
+## How prerendering works
 
-    ```bash
-    cp sample.env .env
-    ```
+`npm run build` runs three steps: a normal client build, an SSR build of
+`src/entry-server.tsx`, then `scripts/prerender.mjs`, which renders every path in
+`src/routes.ts` to static HTML and writes `dist/<route>/index.html` plus a
+`404.html`.
 
-    Change values as appropriate.
+We do not use `vite-react-ssg`: it pins `react-router` to a range carrying two
+moderate advisories with no fix available on that major
+(GHSA-wrjc-x8rr-h8h6, GHSA-337j-9hxr-rhxg). Owning ~40 lines of prerender keeps
+us on a patched React Router.
 
-3. Build the react application and serve it including hot module reloading:
+## The URL rewrite rule
 
-    ```bash
-    npm start
-    ```
+Prerendering emits `/about/index.html`, but visitors request `/about`. That
+mapping lives in exactly one place, `scripts/rewrite.mjs`, and is consumed by:
+
+- `scripts/serve.mjs`, the static server Playwright runs against, and
+- the CloudFront Function in front of S3 (see `infra/`).
+
+The file is deliberately dependency-free and ES5-ish so the body transplants
+into a CloudFront Function unchanged. `src/test/rewrite.test.ts` pins it.
+
+E2E deliberately does **not** use `vite preview`, whose SPA fallback serves
+`index.html` for any unmatched path and would mask a broken prerender.
+
+## Version ceilings
+
+Three dependencies are held below latest on purpose:
+
+- **TypeScript 6.0.x** — `typescript-eslint` declares `typescript <6.1.0`, so
+  TS 7 has no typed-linting support yet.
+- **No `eslint-plugin-jsx-a11y`** — it caps at ESLint 9, which is EOL.
+  Accessibility is covered at runtime by axe in Playwright instead.
+- **`@types/node` 22.x** — matches the Node 22 runtime rather than latest.

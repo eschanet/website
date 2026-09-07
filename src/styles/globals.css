@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* Monochrome ramp. Only one hue exists in the system; "accent" is a
+   near-black/near-white inversion rather than a colour, keeping the
+   palette strictly monochrome while still reading as deliberate. */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  /* Warm-neutral monochrome ramp (hue 95, chroma <=0.008 so it reads as grey
+     with a little warmth rather than a colour). Values chosen against WCAG:
+     body text lands ~8.2:1 in both themes -- softer than a black-on-white
+     ~16:1, while keeping a real margin over the 4.5:1 AA floor. */
+  --color-ink-50: oklch(98.5% 0.002 95);
+  --color-ink-100: oklch(96.5% 0.004 95);
+  --color-ink-200: oklch(93% 0.004 95);
+  --color-ink-300: oklch(88.5% 0.004 95);
+  --color-ink-400: oklch(78% 0.006 95);
+  --color-ink-500: oklch(65% 0.008 95);
+  --color-ink-600: oklch(52% 0.008 95);
+  --color-ink-700: oklch(40% 0.008 95);
+  --color-ink-800: oklch(28% 0.006 95);
+  --color-ink-900: oklch(24% 0.006 95);
+  --color-ink-950: oklch(19% 0.005 95);
+}
+
+@layer base {
+  :root {
+    --bg: oklch(96.5% 0.004 95); /* #f4f3f0 warm off-white, not pure white */
+    --fg: var(--color-ink-700); /* #494843 charcoal, not black - 8.3:1 */
+    --muted: var(--color-ink-600); /* 5.0:1, passes AA */
+    --rule: var(--color-ink-300);
+    --raised: var(--color-ink-50);
+    /* Expanded-entry highlight: a touch lighter than the page. Muted text
+       still clears AA on it (5.3:1). */
+    --highlight: oklch(98.5% 0.002 95);
+  }
+
+  .dark {
+    --bg: var(--color-ink-900); /* #201f1c lifted off black */
+    --fg: oklch(78% 0.006 95); /* #b8b7b3 soft light - 8.2:1 */
+    --muted: var(--color-ink-500); /* 5.1:1, passes AA */
+    --rule: var(--color-ink-800);
+    --raised: var(--color-ink-950);
+    /* Lifted off the page rather than sunk into it. Held at 27% because 30%
+       drops muted text to 4.2:1, below AA. */
+    --highlight: oklch(27% 0.006 95);
+  }
+
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
