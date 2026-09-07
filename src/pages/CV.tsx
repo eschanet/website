@@ -1,17 +1,34 @@
 import { Collapsible } from '@/components/Collapsible';
 import { education, positions, skills } from '@/data/cv';
+import type { Position } from '@/data/cv';
+
+function formatMonth(iso: string): string {
+  const parts = iso.split('-');
+  const y = parts[0] ?? '';
+  const m = parts[1] ?? '01';
+  return new Date(Number(y), Number(m) - 1, 1).toLocaleDateString('en-GB', {
+    month: 'short',
+    year: 'numeric',
+  });
+}
 
 function formatRange(start: string, end: string | null): string {
-  const fmt = (iso: string) => {
-    const parts = iso.split('-');
-    const y = parts[0] ?? '';
-    const m = parts[1] ?? '01';
-    return new Date(Number(y), Number(m) - 1, 1).toLocaleDateString('en-GB', {
-      month: 'short',
-      year: 'numeric',
-    });
-  };
-  return `${fmt(start)} — ${end === null ? 'Present' : fmt(end)}`;
+  return `${formatMonth(start)} — ${end === null ? 'Present' : formatMonth(end)}`;
+}
+
+/** The span across every role held at one organisation. */
+function positionRange(p: Position): string {
+  const starts = p.roles.map((r) => r.start).sort((a, b) => a.localeCompare(b));
+  const isCurrent = p.roles.some((r) => r.end === null);
+  const latestEnd = p.roles
+    .map((r) => r.end)
+    .filter((e): e is string => e !== null)
+    .sort((a, b) => b.localeCompare(a))[0];
+  return formatRange(starts[0] ?? '', isCurrent ? null : (latestEnd ?? null));
+}
+
+function isCurrent(p: Position): boolean {
+  return p.roles.some((r) => r.end === null);
 }
 
 export function CV() {
@@ -20,18 +37,26 @@ export function CV() {
       <h1 className="mb-10 text-xl font-medium tracking-tight">CV</h1>
 
       <Collapsible label="Experience" defaultOpen meta={String(positions.length)}>
-        <ol className="space-y-10">
+        <div className="-mt-3">
           {positions.map((p) => (
-            <li key={p.org}>
-              <div className="mb-1 flex items-baseline justify-between gap-4">
-                <h3 className="text-[15px] font-medium">{p.org}</h3>
-                <span className="label shrink-0">{p.location}</span>
-              </div>
+            <Collapsible
+              key={p.org}
+              label={p.org}
+              meta={positionRange(p)}
+              level={3}
+              variant="entry"
+              defaultOpen={isCurrent(p)}
+            >
+              <p className="label mb-3">{p.location}</p>
               <ul className="mb-3">
                 {p.roles.map((r) => (
                   <li key={r.title} className="flex items-baseline justify-between gap-4 text-sm">
                     <span>{r.title}</span>
-                    <span className="label shrink-0">{formatRange(r.start, r.end)}</span>
+                    {/* With a single role the summary's meta already shows the
+                        range, so repeating it here would be noise. */}
+                    {p.roles.length > 1 && (
+                      <span className="label shrink-0">{formatRange(r.start, r.end)}</span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -48,9 +73,9 @@ export function CV() {
                   ))}
                 </ul>
               )}
-            </li>
+            </Collapsible>
           ))}
-        </ol>
+        </div>
       </Collapsible>
 
       <Collapsible label="Education" meta={String(education.length)}>
