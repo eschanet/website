@@ -105,3 +105,74 @@ test('a collapsed nested entry shows an unrotated chevron', async ({ page }) => 
   await page.waitForTimeout(300);
   expect(await ubs.evaluate((el) => getComputedStyle(el).rotate)).toBe('90deg');
 });
+
+test('expanding one position collapses the others', async ({ page }) => {
+  await page.goto('/cv');
+  const vontobelDetail = page.getByText('Platform and delivery engineering');
+  const ubsDetail = page.getByText('Technical lead for the migration');
+
+  await expect(vontobelDetail).toBeVisible();
+  await expect(ubsDetail).toBeHidden();
+
+  await page.getByRole('heading', { level: 3, name: 'UBS Switzerland AG' }).click();
+  await expect(ubsDetail).toBeVisible();
+  await expect(vontobelDetail).toBeHidden();
+
+  await page.getByRole('heading', { level: 3, name: 'LMU Munich, CERN' }).click();
+  await expect(page.getByText('Petabyte-scale statistical data analysis')).toBeVisible();
+  await expect(ubsDetail).toBeHidden();
+  await expect(vontobelDetail).toBeHidden();
+});
+
+test('accordion exclusivity works without JavaScript', async ({ browser }) => {
+  // Native <details name> is browser behaviour, not script.
+  const ctx = await browser.newContext({ javaScriptEnabled: false });
+  const p = await ctx.newPage();
+  await p.goto('/cv');
+  await p.getByRole('heading', { level: 3, name: 'UBS Switzerland AG' }).click();
+  await expect(p.getByText('Technical lead for the migration')).toBeVisible();
+  await expect(p.getByText('Platform and delivery engineering')).toBeHidden();
+  await ctx.close();
+});
+
+test('only the expanded position carries the highlight background', async ({ page }) => {
+  await page.goto('/cv');
+  const entry = (org: string) => page.locator(`details:has(> summary h3:text-is("${org}"))`);
+  const bg = (org: string) => entry(org).evaluate((el) => getComputedStyle(el).backgroundColor);
+
+  const open = await bg('Bank Vontobel AG');
+  const closed = await bg('UBS Switzerland AG');
+
+  // Closed entries inherit the page background (transparent).
+  expect(closed).toBe('rgba(0, 0, 0, 0)');
+  expect(open).not.toBe('rgba(0, 0, 0, 0)');
+
+  // The highlight follows the open entry.
+  await page.getByRole('heading', { level: 3, name: 'UBS Switzerland AG' }).click();
+  await page.waitForTimeout(300);
+  expect(await bg('UBS Switzerland AG')).toBe(open);
+  expect(await bg('Bank Vontobel AG')).toBe('rgba(0, 0, 0, 0)');
+});
+
+test('the highlight is lighter than the page in both themes', async ({ page }) => {
+  await page.goto('/cv');
+  const luminance = (rgb: string): number => {
+    const parts = rgb.match(/\d+/g)?.map(Number) ?? [];
+    const [r = 0, g = 0, b = 0] = parts;
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const read = async () => ({
+    page: await page.locator('body').evaluate((el) => getComputedStyle(el).backgroundColor),
+    box: await page
+      .locator('details:has(> summary h3:text-is("Bank Vontobel AG"))')
+      .evaluate((el) => getComputedStyle(el).backgroundColor),
+  });
+
+  const light = await read();
+  expect(luminance(light.box)).toBeGreaterThan(luminance(light.page));
+
+  await page.getByRole('button', { name: /switch to dark theme/i }).click();
+  await page.waitForTimeout(300);
+  const dark = await read();
+  expect(luminance(dark.box)).toBeGreaterThan(luminance(dark.page));
+});

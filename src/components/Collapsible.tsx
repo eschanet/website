@@ -16,6 +16,12 @@ interface CollapsibleProps {
    * rule, tighter rhythm.
    */
   readonly variant?: 'section' | 'entry';
+  /**
+   * Shared name turns sibling disclosures into an exclusive accordion. This is
+   * the native <details name> behaviour, so opening one closes the others with
+   * no JavaScript at all.
+   */
+  readonly name?: string;
 }
 
 /**
@@ -31,6 +37,7 @@ export function Collapsible({
   meta,
   level = 2,
   variant = 'section',
+  name,
 }: CollapsibleProps) {
   const Heading = level === 2 ? 'h2' : 'h3';
   const isSection = variant === 'section';
@@ -40,9 +47,10 @@ export function Collapsible({
       className={
         isSection
           ? 'group/section border-b border-[var(--rule)] py-5'
-          : 'group/entry border-b border-[var(--rule)]/60 py-3 last:border-b-0'
+          : 'group/entry border-b border-[var(--rule)]/60 py-3 transition-colors last:border-b-0 open:-mx-3 open:rounded-lg open:border-transparent open:bg-[var(--highlight)] open:px-3'
       }
       open={defaultOpen}
+      name={name}
     >
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded [&::-webkit-details-marker]:hidden">
         <span className="flex min-w-0 items-center gap-2">

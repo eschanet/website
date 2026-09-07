@@ -34,6 +34,9 @@
     --muted: var(--color-ink-600); /* 5.0:1, passes AA */
     --rule: var(--color-ink-300);
     --raised: var(--color-ink-50);
+    /* Expanded-entry highlight: a touch lighter than the page. Muted text
+       still clears AA on it (5.3:1). */
+    --highlight: oklch(98.5% 0.002 95);
   }
 
   .dark {
@@ -42,6 +45,9 @@
     --muted: var(--color-ink-500); /* 5.1:1, passes AA */
     --rule: var(--color-ink-800);
     --raised: var(--color-ink-950);
+    /* Lifted off the page rather than sunk into it. Held at 27% because 30%
+       drops muted text to 4.2:1, below AA. */
+    --highlight: oklch(27% 0.006 95);
   }
 
   html {

@@ -45,6 +45,7 @@ export function CV() {
               meta={positionRange(p)}
               level={3}
               variant="entry"
+              name="experience"
               defaultOpen={isCurrent(p)}
             >
               <p className="label mb-3">{p.location}</p>
